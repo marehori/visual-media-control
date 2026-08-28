@@ -14,11 +14,9 @@ It uses the media information Windows already receives from apps such as Spotify
 
 | D6 layout | Settings |
 | --- | --- |
-| ![D6 layout placeholder](screenshots/d6-layout.png) | ![Settings placeholder](screenshots/settings.png) |
+| ![Visual Media Control layout in FIFINE Control Deck](screenshots/d6-layout.png) | ![Visual Media Control settings](screenshots/settings.png) |
 
-![Custom 2x2 artwork grid placeholder](screenshots/artwork-grid.png)
-
-These are placeholders for now. Real D6 screenshots are coming later.
+![Visual Media Control running on a FIFINE D6](screenshots/hardware.jpg)
 
 ## What it can do
 
