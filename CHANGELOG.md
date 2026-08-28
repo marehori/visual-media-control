@@ -9,3 +9,4 @@
 - Configurable icon, text, shadow, outline, backdrop, and gradient styles
 - Per-key custom PNG icons
 - FIFINE D6 installer, uninstaller, media diagnostic, and local tests
+- Separate full and folder-only manual installation packages

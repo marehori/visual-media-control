@@ -31,11 +31,27 @@ These are placeholders for now. Real D6 screenshots are coming later.
 
 ## Installation
 
-1. Download the latest ZIP from [Releases](https://github.com/marehori/visual-media-control/releases/latest) and extract it.
+### Manual install (recommended)
+
+1. Download `Visual-Media-Control-v1.0.0-manual.zip` from [Releases](https://github.com/marehori/visual-media-control/releases/latest).
 2. Close FIFINE Control Deck completely, including its tray icon.
-3. Right-click `Install-For-FIFINE.ps1` and select **Run with PowerShell**.
-4. Start FIFINE Control Deck again.
-5. Find **Visual Media Control** in the action list.
+3. Extract `com.marehori.nowplaying.sdPlugin` into:
+
+```text
+%APPDATA%\HotSpot\StreamDock\plugins\
+```
+
+The final path should be:
+
+```text
+%APPDATA%\HotSpot\StreamDock\plugins\com.marehori.nowplaying.sdPlugin\
+```
+
+Start FIFINE Control Deck again and find **Visual Media Control** in the action list.
+
+### PowerShell installer
+
+Download and extract `Visual-Media-Control-v1.0.0.zip`, close FIFINE Control Deck, then right-click `Install-For-FIFINE.ps1` and select **Run with PowerShell**.
 
 If Windows blocks the script, open PowerShell in the extracted folder and run:
 
@@ -44,6 +60,10 @@ powershell -ExecutionPolicy Bypass -File .\Install-For-FIFINE.ps1
 ```
 
 The installer backs up an existing version before replacing it.
+
+### About the EXE inside the plugin folder
+
+`VisualMediaControl.exe` is not an installer and should not be opened manually. FIFINE Control Deck uses it as the plugin entry point. It only starts the included `plugin.ps1` with the arguments provided by Control Deck. Its complete source is in `source/Launcher.cs`, and `Build-Release.ps1` rebuilds it using the C# compiler included with Windows.
 
 ## 2x2 artwork grid
 
@@ -73,7 +93,7 @@ powershell -ExecutionPolicy Bypass -File .\Uninstall-From-FIFINE.ps1
 
 ## Development
 
-The runtime is PowerShell 5.1 with a tiny C# launcher. `source/GenerateIcons.ps1` rebuilds the icon set, and `Build-Release.ps1` creates a clean release ZIP.
+The runtime is PowerShell 5.1 with a tiny C# launcher. `source/GenerateIcons.ps1` rebuilds the icon set, and `Build-Release.ps1` creates the full and manual-install release ZIPs.
 
 Bug reports and D6 compatibility notes are welcome in [Issues](https://github.com/marehori/visual-media-control/issues).
 

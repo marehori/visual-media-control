@@ -10,16 +10,28 @@ Controller Deck.
 The plugin was built and tested for the FIFINE D6 on Windows 10/11. Other
 StreamDock-compatible devices may work, but are not tested or supported yet.
 
-Installation
-------------
+Manual installation (recommended)
+---------------------------------
 1. Close FIFINE Control Deck completely, including its notification-area icon.
-2. Right-click Install-For-FIFINE.ps1 and choose Run with PowerShell, or run:
+2. Copy the com.marehori.nowplaying.sdPlugin folder into:
 
-   powershell -ExecutionPolicy Bypass -File .\Install-For-FIFINE.ps1
+   %APPDATA%\HotSpot\StreamDock\plugins\
 
 3. Start FIFINE Control Deck.
 4. Find Visual Media Control in the action list.
-5. Drag Artwork Play / Pause onto a key, or use the four grid actions below.
+
+PowerShell installation
+-----------------------
+Close FIFINE Control Deck, then right-click Install-For-FIFINE.ps1 and choose
+Run with PowerShell, or run:
+
+   powershell -ExecutionPolicy Bypass -File .\Install-For-FIFINE.ps1
+
+Start FIFINE Control Deck and drag Artwork Play / Pause onto a key, or use the
+four grid actions below.
+
+VisualMediaControl.exe is not an installer. FIFINE Control Deck uses it only as
+the plugin entry point. Its complete source is included in source\Launcher.cs.
 
 2x2 artwork grid
 ----------------

@@ -7,6 +7,8 @@ $pluginRoot = Join-Path $repoRoot $pluginName
 $sourceRoot = Join-Path $repoRoot 'source'
 $distRoot = Join-Path $repoRoot 'dist'
 $archivePath = Join-Path $distRoot "Visual-Media-Control-v$Version.zip"
+$manualArchivePath = Join-Path $distRoot "Visual-Media-Control-v$Version-manual.zip"
+$checksumsPath = Join-Path $distRoot 'SHA256SUMS.txt'
 $temporaryRoot = Join-Path ([System.IO.Path]::GetTempPath()) ("visual-media-control-" + [Guid]::NewGuid().ToString('N'))
 
 $manifest = Get-Content (Join-Path $pluginRoot 'manifest.json') -Raw | ConvertFrom-Json
@@ -48,7 +50,11 @@ try {
     if (Test-Path -LiteralPath $archivePath) {
         Remove-Item -LiteralPath $archivePath -Force
     }
+    if (Test-Path -LiteralPath $manualArchivePath) {
+        Remove-Item -LiteralPath $manualArchivePath -Force
+    }
     Compress-Archive -Path (Join-Path $temporaryRoot '*') -DestinationPath $archivePath -CompressionLevel Optimal
+    Compress-Archive -Path (Join-Path $temporaryRoot $pluginName) -DestinationPath $manualArchivePath -CompressionLevel Optimal
 }
 finally {
     if (Test-Path -LiteralPath $temporaryRoot) {
@@ -56,6 +62,13 @@ finally {
     }
 }
 
-$hash = Get-FileHash -LiteralPath $archivePath -Algorithm SHA256
-Write-Host "Created: $archivePath" -ForegroundColor Green
-Write-Host "SHA-256: $($hash.Hash)"
+$hashes = Get-FileHash -LiteralPath $archivePath, $manualArchivePath -Algorithm SHA256
+$checksumLines = $hashes | ForEach-Object {
+    '{0} *{1}' -f $_.Hash, [System.IO.Path]::GetFileName($_.Path)
+}
+Set-Content -LiteralPath $checksumsPath -Value $checksumLines -Encoding ASCII
+foreach ($hash in $hashes) {
+    Write-Host "Created: $($hash.Path)" -ForegroundColor Green
+    Write-Host "SHA-256: $($hash.Hash)"
+}
+Write-Host "Checksums: $checksumsPath"
