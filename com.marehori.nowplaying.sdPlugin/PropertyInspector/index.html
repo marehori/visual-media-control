@@ -1,0 +1,422 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Visual Media Control Settings</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <main id="settings" class="sdpi-wrapper" hidden>
+    <section id="buttonFunctionSection" class="group" hidden>
+      <div class="section-title"><span>BUTTON</span></div>
+      <div class="sdpi-item">
+        <label for="buttonFunction">Function</label>
+        <div class="control">
+          <select id="buttonFunction">
+            <option value="artwork">Artwork only</option>
+            <option value="playPause">Play / Pause</option>
+            <option value="previous">Previous track</option>
+            <option value="next">Next track</option>
+            <option value="title">Title</option>
+          </select>
+        </div>
+      </div>
+    </section>
+
+    <section id="gridSection" class="group" hidden>
+      <div class="section-title"><span>GRID</span></div>
+      <div class="sdpi-item">
+        <label for="gridGap">Bezel gap</label>
+        <div class="control range-control">
+          <input id="gridGap" type="range" min="0" max="60" step="1">
+          <output id="gridGapValue"></output>
+        </div>
+      </div>
+      <div class="help-text">
+        Skips the artwork hidden behind the physical space between keys. This
+        value is synchronized across all four grid actions.
+      </div>
+    </section>
+
+    <section id="iconSection" class="group">
+      <div class="section-title"><span>ICON</span></div>
+
+      <div class="sdpi-item icon-file-item">
+        <label>Custom PNG</label>
+        <div class="control file-control">
+          <img id="customIconPreview" class="icon-preview" alt="Custom icon preview" hidden>
+          <input id="customIconFile" type="file" accept="image/png" hidden>
+          <button id="customIconButton" type="button">Browse…</button>
+          <span id="customIconName" class="file-name">Standard icon</span>
+        </div>
+      </div>
+      <div class="help-text">
+        Best results: square 288×288 PNG with a transparent background. Maximum file size: 2 MB.
+      </div>
+
+      <div class="sdpi-item">
+        <label for="iconSize">Size</label>
+        <div class="control range-control">
+          <input id="iconSize" type="range" min="24" max="82" step="1">
+          <output id="iconSizeValue"></output>
+        </div>
+      </div>
+
+      <div id="standardIconFillOptions">
+        <div class="sdpi-item">
+          <label for="fillMode">Fill</label>
+          <div class="control">
+            <select id="fillMode">
+              <option value="solid">Solid color</option>
+              <option value="gradient">Gradient</option>
+            </select>
+          </div>
+        </div>
+
+        <div id="solidOptions" class="sdpi-item">
+          <label for="solidColor">Color</label>
+          <div class="control color-control">
+            <input id="solidColor" type="color">
+            <span id="solidColorValue" class="color-value"></span>
+          </div>
+        </div>
+
+        <div id="gradientOptions" hidden>
+          <div class="sdpi-item">
+            <label>Gradient colors</label>
+            <div class="control colors">
+              <input id="gradientStart" type="color" aria-label="Gradient start color">
+              <span class="arrow">→</span>
+              <input id="gradientEnd" type="color" aria-label="Gradient end color">
+            </div>
+          </div>
+          <div class="sdpi-item">
+            <label for="gradientAngle">Gradient angle</label>
+            <div class="control range-control">
+              <input id="gradientAngle" type="range" min="0" max="360" step="1">
+              <output id="gradientAngleValue"></output>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="sdpi-item">
+        <label for="iconTransparency">Transparency</label>
+        <div class="control range-control">
+          <input id="iconTransparency" type="range" min="0" max="95" step="1">
+          <output id="iconTransparencyValue"></output>
+        </div>
+      </div>
+    </section>
+
+    <section id="shadowSection" class="group">
+      <div class="section-title"><span>SHADOW</span></div>
+      <div class="sdpi-item">
+        <label>Shadow</label>
+        <div class="control">
+          <label class="checkbox-label" for="shadowEnabled">
+            <input id="shadowEnabled" type="checkbox"> Enable shadow
+          </label>
+        </div>
+      </div>
+
+      <div id="shadowOptions">
+        <div class="sdpi-item">
+          <label for="shadowColor">Color</label>
+          <div class="control color-control">
+            <input id="shadowColor" type="color">
+            <span id="shadowColorValue" class="color-value"></span>
+          </div>
+        </div>
+        <div class="sdpi-item">
+          <label for="shadowOpacity">Opacity</label>
+          <div class="control range-control">
+            <input id="shadowOpacity" type="range" min="0" max="100" step="1">
+            <output id="shadowOpacityValue"></output>
+          </div>
+        </div>
+        <div class="sdpi-item">
+          <label for="shadowBlur">Blur</label>
+          <div class="control range-control">
+            <input id="shadowBlur" type="range" min="0" max="12" step="1">
+            <output id="shadowBlurValue"></output>
+          </div>
+        </div>
+        <div class="sdpi-item">
+          <label for="shadowSpread">Spread</label>
+          <div class="control range-control">
+            <input id="shadowSpread" type="range" min="0" max="12" step="1">
+            <output id="shadowSpreadValue"></output>
+          </div>
+        </div>
+        <div class="sdpi-item">
+          <label for="shadowOffsetX">Horizontal offset</label>
+          <div class="control range-control">
+            <input id="shadowOffsetX" type="range" min="-20" max="20" step="1">
+            <output id="shadowOffsetXValue"></output>
+          </div>
+        </div>
+        <div class="sdpi-item">
+          <label for="shadowOffsetY">Vertical offset</label>
+          <div class="control range-control">
+            <input id="shadowOffsetY" type="range" min="-20" max="20" step="1">
+            <output id="shadowOffsetYValue"></output>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="backdropSection" class="group">
+      <div class="section-title"><span>BACKDROP</span></div>
+      <div class="sdpi-item">
+        <label>Backdrop</label>
+        <div class="control">
+          <label class="checkbox-label" for="backdropEnabled">
+            <input id="backdropEnabled" type="checkbox"> Enable backdrop
+          </label>
+        </div>
+      </div>
+
+      <div id="backdropOptions">
+        <div class="sdpi-item">
+          <label for="backdropColor">Color</label>
+          <div class="control color-control">
+            <input id="backdropColor" type="color">
+            <span id="backdropColorValue" class="color-value"></span>
+          </div>
+        </div>
+        <div class="sdpi-item">
+          <label for="backdropTransparency">Transparency</label>
+          <div class="control range-control">
+            <input id="backdropTransparency" type="range" min="0" max="100" step="1">
+            <output id="backdropTransparencyValue"></output>
+          </div>
+        </div>
+        <div class="sdpi-item">
+          <label for="backdropSize">Size</label>
+          <div class="control range-control">
+            <input id="backdropSize" type="range" min="45" max="100" step="1">
+            <output id="backdropSizeValue"></output>
+          </div>
+        </div>
+        <div class="sdpi-item">
+          <label for="backdropBlur">Edge blur</label>
+          <div class="control range-control">
+            <input id="backdropBlur" type="range" min="0" max="20" step="1">
+            <output id="backdropBlurValue"></output>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="textSection" class="group" hidden>
+      <div class="section-title"><span>TEXT</span></div>
+      <div class="sdpi-item">
+        <label for="textContent">Content</label>
+        <div class="control">
+          <select id="textContent">
+            <option value="titleArtist">Title + artist</option>
+            <option value="title">Title only</option>
+            <option value="artist">Artist only</option>
+          </select>
+        </div>
+      </div>
+      <div class="sdpi-item">
+        <label for="textFontFamily">Font</label>
+        <div class="control">
+          <select id="textFontFamily">
+            <option>Segoe UI</option><option>Arial</option><option>Calibri</option>
+            <option>Consolas</option><option>Georgia</option><option>Impact</option>
+            <option>Trebuchet MS</option><option>Verdana</option><option>Times New Roman</option>
+          </select>
+        </div>
+      </div>
+      <div class="sdpi-item">
+        <label for="textSize">Font size</label>
+        <div class="control range-control">
+          <input id="textSize" type="range" min="10" max="36" step="1">
+          <output id="textSizeValue"></output>
+        </div>
+      </div>
+      <div class="sdpi-item">
+        <label>Fit</label>
+        <div class="control">
+          <label class="checkbox-label" for="textAutoFit">
+            <input id="textAutoFit" type="checkbox"> Auto-fit long text
+          </label>
+        </div>
+      </div>
+      <div class="sdpi-item">
+        <label for="textFillMode">Fill</label>
+        <div class="control">
+          <select id="textFillMode">
+            <option value="solid">Solid color</option>
+            <option value="gradient">Gradient</option>
+          </select>
+        </div>
+      </div>
+      <div id="textSolidOptions" class="sdpi-item">
+        <label for="textColor">Color</label>
+        <div class="control color-control">
+          <input id="textColor" type="color">
+          <span id="textColorValue" class="color-value"></span>
+        </div>
+      </div>
+      <div id="textGradientOptions" hidden>
+        <div class="sdpi-item">
+          <label>Gradient colors</label>
+          <div class="control colors">
+            <input id="textGradientStart" type="color" aria-label="Text gradient start color">
+            <span class="arrow">→</span>
+            <input id="textGradientEnd" type="color" aria-label="Text gradient end color">
+          </div>
+        </div>
+        <div class="sdpi-item">
+          <label for="textGradientAngle">Gradient angle</label>
+          <div class="control range-control">
+            <input id="textGradientAngle" type="range" min="0" max="360" step="1">
+            <output id="textGradientAngleValue"></output>
+          </div>
+        </div>
+      </div>
+      <div class="sdpi-item">
+        <label for="textTransparency">Transparency</label>
+        <div class="control range-control">
+          <input id="textTransparency" type="range" min="0" max="95" step="1">
+          <output id="textTransparencyValue"></output>
+        </div>
+      </div>
+      <div class="sdpi-item">
+        <label for="textAlignment">Alignment</label>
+        <div class="control">
+          <select id="textAlignment">
+            <option value="left">Left</option>
+            <option value="center">Center</option>
+            <option value="right">Right</option>
+          </select>
+        </div>
+      </div>
+      <div class="sdpi-item">
+        <label for="textVerticalAlignment">Vertical align</label>
+        <div class="control">
+          <select id="textVerticalAlignment">
+            <option value="top">Top</option>
+            <option value="center">Center</option>
+            <option value="bottom">Bottom</option>
+          </select>
+        </div>
+      </div>
+      <div class="sdpi-item">
+        <label>Weight</label>
+        <div class="control">
+          <label class="checkbox-label" for="textBold">
+            <input id="textBold" type="checkbox"> Bold
+          </label>
+        </div>
+      </div>
+    </section>
+
+    <section id="textOutlineSection" class="group" hidden>
+      <div class="section-title"><span>TEXT OUTLINE</span></div>
+      <div class="sdpi-item">
+        <label>Outline</label>
+        <div class="control">
+          <label class="checkbox-label" for="textOutlineEnabled">
+            <input id="textOutlineEnabled" type="checkbox"> Improve readability
+          </label>
+        </div>
+      </div>
+      <div id="textOutlineOptions">
+        <div class="sdpi-item">
+          <label for="textOutlineColor">Color</label>
+          <div class="control color-control">
+            <input id="textOutlineColor" type="color">
+            <span id="textOutlineColorValue" class="color-value"></span>
+          </div>
+        </div>
+        <div class="sdpi-item">
+          <label for="textOutlineOpacity">Opacity</label>
+          <div class="control range-control">
+            <input id="textOutlineOpacity" type="range" min="0" max="100" step="1">
+            <output id="textOutlineOpacityValue"></output>
+          </div>
+        </div>
+        <div class="sdpi-item">
+          <label for="textOutlineWidth">Width</label>
+          <div class="control range-control">
+            <input id="textOutlineWidth" type="range" min="1" max="5" step="1">
+            <output id="textOutlineWidthValue"></output>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="textShadowSection" class="group" hidden>
+      <div class="section-title"><span>TEXT SHADOW</span></div>
+      <div class="sdpi-item">
+        <label>Shadow</label>
+        <div class="control">
+          <label class="checkbox-label" for="textShadowEnabled">
+            <input id="textShadowEnabled" type="checkbox"> Enable shadow
+          </label>
+        </div>
+      </div>
+      <div id="textShadowOptions">
+        <div class="sdpi-item">
+          <label for="textShadowColor">Color</label>
+          <div class="control color-control">
+            <input id="textShadowColor" type="color">
+            <span id="textShadowColorValue" class="color-value"></span>
+          </div>
+        </div>
+        <div class="sdpi-item">
+          <label for="textShadowOpacity">Opacity</label>
+          <div class="control range-control">
+            <input id="textShadowOpacity" type="range" min="0" max="100" step="1">
+            <output id="textShadowOpacityValue"></output>
+          </div>
+        </div>
+        <div class="sdpi-item">
+          <label for="textShadowBlur">Blur</label>
+          <div class="control range-control">
+            <input id="textShadowBlur" type="range" min="0" max="8" step="1">
+            <output id="textShadowBlurValue"></output>
+          </div>
+        </div>
+        <div class="sdpi-item">
+          <label for="textShadowOffsetX">Horizontal offset</label>
+          <div class="control range-control">
+            <input id="textShadowOffsetX" type="range" min="-12" max="12" step="1">
+            <output id="textShadowOffsetXValue"></output>
+          </div>
+        </div>
+        <div class="sdpi-item">
+          <label for="textShadowOffsetY">Vertical offset</label>
+          <div class="control range-control">
+            <input id="textShadowOffsetY" type="range" min="-12" max="12" step="1">
+            <output id="textShadowOffsetYValue"></output>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="group reset-group">
+      <div class="section-title"><span>RESET</span></div>
+      <div class="sdpi-item">
+        <span class="label-spacer"></span>
+        <div class="control">
+          <button id="reset" type="button">Reset appearance</button>
+        </div>
+      </div>
+    </section>
+
+    <footer class="plugin-footer">
+      <p>New versions and my other plugins:</p>
+      <a id="githubLink" href="https://github.com/marehori">github.com/marehori</a>
+      <div class="footer-byline">by marehori</div>
+    </footer>
+  </main>
+  <script src="index.js"></script>
+</body>
+</html>

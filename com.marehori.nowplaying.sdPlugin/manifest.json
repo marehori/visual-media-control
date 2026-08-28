@@ -1,0 +1,144 @@
+{
+  "Actions": [
+    {
+      "Icon": "Images/action.png",
+      "Name": "Artwork Play / Pause",
+      "States": [
+        {
+          "Image": "Images/action.png"
+        }
+      ],
+      "Controllers": [
+        "Keypad"
+      ],
+      "PropertyInspectorPath": "PropertyInspector/index.html",
+      "Settings": {
+        "buttonFunction": "playPause",
+        "iconSize": 56,
+        "fillMode": "solid",
+        "solidColor": "#FFFFFF",
+        "gradientStart": "#FFFFFF",
+        "gradientEnd": "#7C5CFF",
+        "gradientAngle": 45,
+        "iconTransparency": 5,
+        "customIconData": "",
+        "customIconName": "",
+        "shadowEnabled": true,
+        "shadowColor": "#000000",
+        "shadowOpacity": 32,
+        "shadowBlur": 4,
+        "shadowSpread": 1,
+        "shadowOffsetX": 2,
+        "shadowOffsetY": 3,
+        "backdropEnabled": false,
+        "backdropColor": "#000000",
+        "backdropTransparency": 25,
+        "backdropSize": 76,
+        "backdropBlur": 0
+      },
+      "SupportedInMultiActions": false,
+      "Tooltip": "Full artwork with system Play / Pause",
+      "UUID": "com.marehori.nowplaying.playpause"
+    },
+    {
+      "Icon": "Images/top-left.png",
+      "Name": "Top Left",
+      "States": [
+        {
+          "Image": "Images/top-left.png"
+        }
+      ],
+      "Controllers": [
+        "Keypad"
+      ],
+      "PropertyInspectorPath": "PropertyInspector/index.html",
+      "Settings": {
+        "buttonFunction": "previous",
+        "gridGap": 30
+      },
+      "SupportedInMultiActions": false,
+      "Tooltip": "Top-left quarter of the shared artwork grid",
+      "UUID": "com.marehori.nowplaying.grid.topleft"
+    },
+    {
+      "Icon": "Images/top-right.png",
+      "Name": "Top Right",
+      "States": [
+        {
+          "Image": "Images/top-right.png"
+        }
+      ],
+      "Controllers": [
+        "Keypad"
+      ],
+      "PropertyInspectorPath": "PropertyInspector/index.html",
+      "Settings": {
+        "buttonFunction": "next",
+        "gridGap": 30
+      },
+      "SupportedInMultiActions": false,
+      "Tooltip": "Top-right quarter of the shared artwork grid",
+      "UUID": "com.marehori.nowplaying.grid.topright"
+    },
+    {
+      "Icon": "Images/bottom-left.png",
+      "Name": "Bottom Left",
+      "States": [
+        {
+          "Image": "Images/bottom-left.png"
+        }
+      ],
+      "Controllers": [
+        "Keypad"
+      ],
+      "PropertyInspectorPath": "PropertyInspector/index.html",
+      "Settings": {
+        "buttonFunction": "title",
+        "gridGap": 30
+      },
+      "SupportedInMultiActions": false,
+      "Tooltip": "Bottom-left quarter of the shared artwork grid",
+      "UUID": "com.marehori.nowplaying.grid.bottomleft"
+    },
+    {
+      "Icon": "Images/bottom-right.png",
+      "Name": "Bottom Right",
+      "States": [
+        {
+          "Image": "Images/bottom-right.png"
+        }
+      ],
+      "Controllers": [
+        "Keypad"
+      ],
+      "PropertyInspectorPath": "PropertyInspector/index.html",
+      "Settings": {
+        "buttonFunction": "playPause",
+        "gridGap": 30
+      },
+      "SupportedInMultiActions": false,
+      "Tooltip": "Bottom-right quarter of the shared artwork grid",
+      "UUID": "com.marehori.nowplaying.grid.bottomright"
+    }
+  ],
+  "Author": "marehori",
+  "Category": "Visual Media Control",
+  "CategoryIcon": "Images/category.png",
+  "CodePath": "VisualMediaControl.exe",
+  "Description": "Windows media artwork and playback controls for the FIFINE D6 Stream Controller Deck.",
+  "Icon": "Images/plugin.png",
+  "Name": "Visual Media Control",
+  "OS": [
+    {
+      "Platform": "windows",
+      "MinimumVersion": "10"
+    }
+  ],
+  "SDKVersion": 1,
+  "Software": {
+    "MinimumVersion": "2.9"
+  },
+  "UUID": "com.marehori.nowplaying",
+  "URL": "https://github.com/marehori/visual-media-control",
+  "Version": "1.0.0"
+}
